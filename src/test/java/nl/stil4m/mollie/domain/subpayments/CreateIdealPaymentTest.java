@@ -1,6 +1,8 @@
 package nl.stil4m.mollie.domain.subpayments;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import nl.stil4m.mollie.domain.CreatePayment;
 import nl.stil4m.mollie.domain.subpayments.ideal.CreateIdealPayment;
 import nl.stil4m.mollie.domain.subpayments.ideal.IdealPaymentOptions;
 import org.junit.Test;
@@ -20,7 +22,9 @@ public class CreateIdealPaymentTest {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> metaData = new HashMap<>();
         metaData.put("mySpecialKey", "value");
-        String serialized = objectMapper.writeValueAsString(new CreateIdealPayment(1.0, "Description", "redirectUrl", metaData, new IdealPaymentOptions("MyIssuer")));
+        CreatePayment payment = new CreateIdealPayment(1.0, "Description", "redirectUrl", metaData, new IdealPaymentOptions("MyIssuer"))
+                .setProperty("webhookUrl", "webhookUrl");
+        String serialized = objectMapper.writeValueAsString(payment);
 
         Map mapRepresentation = objectMapper.readValue(serialized, Map.class);
         InputStream resourceAsStream = this.getClass().getResourceAsStream("/expected_create_ideal_payment.json");
