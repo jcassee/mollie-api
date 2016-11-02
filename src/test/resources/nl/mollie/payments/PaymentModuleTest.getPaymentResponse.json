@@ -1,0 +1,18 @@
+{
+  "id":              "tr_7UhSN1zuXS",
+  "mode":            "test",
+  "createdDatetime": "2016-11-01T22:34:09.0Z",
+  "status":          "open",
+  "expiryPeriod":    "PT15M",
+  "amount":          10.00,
+  "description":     "My first payment",
+  "metadata": {
+    "order_id": "12345"
+  },
+  "locale": "nl",
+  "profileId": "pfl_QkEhN4Ba",
+  "links": {
+    "paymentUrl":  "https://www.mollie.com/payscreen/select-method/7UhSN1zuXS",
+    "redirectUrl": "https://webshop.example.org/order/12345/"
+  }
+}

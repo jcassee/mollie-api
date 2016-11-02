@@ -1,0 +1,8 @@
+{
+  "amount": 10.00,
+  "description": "My first payment",
+  "redirectUrl": "https://webshop.example.org/order/12345/",
+  "metadata": {
+    "order_id": "12345"
+  }
+}
